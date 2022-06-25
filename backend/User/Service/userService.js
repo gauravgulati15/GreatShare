@@ -83,6 +83,32 @@ class UserService {
         }
     }
 
+    static async getUserDetailsByEmailID(emailID){
+        try {
+            const result = await sequelize.transaction(async (t) => {
+                const user = await User.findOne({
+                    where: {
+                        emailID: emailID
+                    }
+                }, { 
+                    raw: true,
+                    nest: true,
+                    attributes: ['userID', 'username', 'emailID', 'phoneNo', 'password'],
+                    transaction: t 
+                });
+
+                if(user === null){
+                    throw new Error("The user does not exist.");
+                }
+
+                return user;
+            });
+            return [true, result];
+        } catch (error) {
+           return [false, error.message];
+        }
+    }
+
     static async updateUserDetails(userID, data){
         try {
             const result = await sequelize.transaction(async (t) => {

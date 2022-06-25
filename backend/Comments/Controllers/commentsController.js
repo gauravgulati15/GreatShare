@@ -38,7 +38,7 @@ class CommentsController {
         if(flag === false){
             res.status(500).send(resp);
         }
-        res.send(resp);
+        res.send(true);
     }
 }
 

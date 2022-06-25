@@ -11,4 +11,6 @@ router
     .delete(UserController.deleteUser)
     .put(UserController.updateUserDetails);
 
+router.route("/userDetailsByEmailID/:emailID").get(UserController.getUserDetailsByEmailID);
+
 module.exports = router;

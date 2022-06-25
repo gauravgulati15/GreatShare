@@ -29,6 +29,17 @@ class UserController {
         res.send(resp);
     }
 
+    static async getUserDetailsByEmailID(req, res, next){
+        const [flag, resp] = await UserService.getUserDetailsByEmailID(req.params.emailID);
+        if(flag === false){
+            res.status(500).send(resp);
+        }
+        if(resp.length === 0){
+            res.status(404).send("User does not exist.");
+        }
+        res.send(resp);
+    }
+
     static async deleteUser(req, res, next){
         const [flag, resp] = await UserService.deleteUser(req.params.userID);
         if(flag === false){
