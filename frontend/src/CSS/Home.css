@@ -1,0 +1,29 @@
+.share{
+    text-decoration: none;
+    position: absolute;
+    left:80%;
+    top:22%;
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color:white;
+    display: flex;
+    width:max(10vw,150px);
+    height: 4vh;
+    align-items:center;
+    justify-content: space-around;
+    color: #F73D93;
+    font-size: 1rem;;
+}
+@media (max-width:820px) {
+    .share{
+    left: 70%;
+    top: 15%;
+    }
+}
+@media (max-width:525px) {
+    .share {
+        width: 120px;
+        font-size: 0.8rem;
+        left: 60%;
+    }
+}
