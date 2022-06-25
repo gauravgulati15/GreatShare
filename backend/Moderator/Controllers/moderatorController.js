@@ -9,6 +9,14 @@ class ModeratorController {
         res.send(resp);
     }
 
+    static async getAllPostsByUserIDFromModeratorTable(req, res, next){
+        const [flag, resp] = await ModeratorService.getAllPostsByUserIDFromModeratorTable(req.params.userID);
+        if(flag === false){
+            res.status(500).send(resp);
+        }
+        res.send(resp);
+    }
+
     static async createPost(req, res, next){
         const [flag, resp] = await ModeratorService.createPostInModerationTable(req.body);
         if(flag === false){

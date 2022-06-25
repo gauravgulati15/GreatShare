@@ -55,6 +55,23 @@ class ModeratorService {
         }
     }
 
+    static async getAllPostsByUserIDFromModeratorTable(userID){
+        try {
+            const result = await sequelize.transaction(async (t) => {
+                const posts = await Moderator.findAll({
+                    where: {
+                        userID: userID
+                    }
+                }, { transaction: t });
+
+                return posts;
+            });
+            return [true, result];
+        } catch (error) {
+            return [false, error.message];
+        }
+    }
+
     static async getLimitedOldestPost(){
         try {
             const result = await sequelize.transaction(async (t) => {

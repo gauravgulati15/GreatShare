@@ -4,6 +4,8 @@ const PostController = require("../Controllers/postController");
 const router = express.Router();
 
 router.route("/all").get(PostController.getAllPostsInPostTable);
+router.route("/getAllPostsByUserID/:userID").get(PostController.getAllPostsByUserIDFromPostTable);
+
 router
     .route("/:postID")
     .get(PostController.getPostByPostID)

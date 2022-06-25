@@ -21,6 +21,23 @@ class PostService {
         }
     }
 
+    static async getAllPostsByUserIDFromPostTable(userID){
+        try {
+            const result = await sequelize.transaction(async (t) => {
+                const posts = await Post.findAll({
+                    where: {
+                        userID: userID
+                    }
+                }, { transaction: t });
+
+                return posts;
+            });
+            return [true, result];
+        } catch (error) {
+            return [false, error.message];
+        }
+    }
+
     static async increasePostLikes(postID, totalLikes){
         try {
             const result = await sequelize.transaction(async (t) => {

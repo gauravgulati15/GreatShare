@@ -9,6 +9,14 @@ class PostController {
         res.send(resp);
     }
 
+    static async getAllPostsByUserIDFromPostTable(req, res, next){
+        const [flag, resp] = await PostService.getAllPostsByUserIDFromPostTable(req.params.userID);
+        if(flag === false){
+            res.status(500).send(resp);
+        }
+        res.send(resp);
+    }
+
     static async increasePostLikes(req, res, next){
         const [flag, resp] = await PostService.increasePostLikes(req.params.postID, req.body.totalLikes);
         if(flag === false){

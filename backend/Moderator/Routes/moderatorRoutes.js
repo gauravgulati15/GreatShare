@@ -4,6 +4,8 @@ const ModeratorController = require("../Controllers/moderatorController");
 const router = express.Router();
 
 router.route("/all").get(ModeratorController.getAllPostsInModerationTable);
+router.route("/getAllPostsByUserID/:userID").get(ModeratorController.getAllPostsByUserIDFromModeratorTable);
+
 router
     .route("/")
     .get(ModeratorController.getLimitedOldestPost)

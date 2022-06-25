@@ -21,6 +21,23 @@ class ReviewService {
         }
     }
 
+    static async getAllPostsByUserIDFromReviewTable(userID){
+        try {
+            const result = await sequelize.transaction(async (t) => {
+                const posts = await Review.findAll({
+                    where: {
+                        userID: userID
+                    }
+                }, { transaction: t });
+
+                return posts;
+            });
+            return [true, result];
+        } catch (error) {
+            return [false, error.message];
+        }
+    }
+
     static async getPostByPostIDFromReviewTable(postID){
         try {
             const result = await sequelize.transaction(async (t) => {

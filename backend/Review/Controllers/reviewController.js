@@ -9,6 +9,14 @@ class ReviewController {
         res.send(resp);
     }
 
+    static async getAllPostsByUserIDFromReviewTable(req, res, next){
+        const [flag, resp] = await ReviewService.getAllPostsByUserIDFromReviewTable(req.params.userID);
+        if(flag === false){
+            res.status(500).send(resp);
+        }
+        res.send(resp);
+    }
+
     static async getPostByPostIDFromReviewTable(req, res, next){
         const [flag, resp] = await ReviewService.getPostByPostIDFromReviewTable(req.params.postID);
         if(flag === false){
