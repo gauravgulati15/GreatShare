@@ -1,9 +1,8 @@
-@settings {
-  font-size: 100;
-}
 # **GreatShare**
 
-[![GreatShare](https://img.youtube.com/vi/sL553tHxTgc/0.jpg)](https://www.youtube.com/watch?v=sL553tHxTgc)
+
+
+https://user-images.githubusercontent.com/56128284/175812293-ddef3e3a-c843-4848-96e9-d0027edfc85b.mp4
 
 
 > *GreatShare makes social media a safe place for everyone!..*
