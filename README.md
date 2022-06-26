@@ -35,8 +35,13 @@
 
 <br/>
 
-It uses  *__Clarifai__*  API for content moderation which checks the content on the following parameters :-
+It uses  *__Clarifai__*  API for content moderation which checks the content and gives the probability of different parameters.-
 -
+- ## Image Moderator Sample Output
+  ![](/frontend/src/Images/imageM.PNG)
+
+- ## Text Moderator Sample Output
+  ![](/frontend/src/Images/textM.PNG)  
 
           
 # Our *__Content Moderation System__*
@@ -74,7 +79,7 @@ GreatShare aims on improving continuously. We are always looking forward to impr
 
 
  
-# React ![ReactJs](https://logos-download.com/wp-content/uploads/2016/09/React_logo_wordmark.png)  NodeJs ![NodeJs](https://programadoresbrasil.com.br/wp-content/uploads/2020/02/nodejs.jpg) CockroachDb ![cockroachDb](https://miro.medium.com/max/1196/0*J4CudgdsKXNobIGF.jpeg) Twillio ![Twillio](https://techcrunch.com/wp-content/uploads/2016/01/twilio-logo.png?w=1024) Clarifai API ![Clarifai](https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/x2d9xny0gatskd34eait)
+#  ![ReactJs](https://logos-download.com/wp-content/uploads/2016/09/React_logo_wordmark.png)   ![NodeJs](https://programadoresbrasil.com.br/wp-content/uploads/2020/02/nodejs.jpg)  ![cockroachDb](https://miro.medium.com/max/1196/0*J4CudgdsKXNobIGF.jpeg)  ![Twillio](https://techcrunch.com/wp-content/uploads/2016/01/twilio-logo.png?w=1024) ![Clarifai](https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/x2d9xny0gatskd34eait)
 
 
 
