@@ -5,16 +5,22 @@ import PostWrapper from "../styled-components/PostWrapper";
 import LikeIcon from "./LikeIcon";
 import Comments from "./Comments";
 import { useUserContext } from "../context/user_context";
-const SinglePost = ({ post }) => {
+import GreatShareService from "../API/api";
+
+const SinglePost = ({ post, comments, increaseLikes, createComment, inActive }) => {
   const { user, authenticated } = useUserContext();
+  const [totalLikes, setTotalLikes] = useState();
+  // const [currentLikes, setCurrentLikes] = useState();
   const [thisPost, setThisPost] = useState({
-    postId: 0,
-    userId: "",
+    postID: 0,
+    userID: "",
     username: "",
+    postTitle: "",
     postContent: "",
     postImage: "",
     postLikes: 0,
   });
+
   useEffect(() => {
     setThisPost(post);
   }, [post]);
@@ -23,7 +29,7 @@ const SinglePost = ({ post }) => {
     <PostWrapper>
       <div className="titlediv">
         <h1 className="title">{thisPost.postTitle}</h1>
-        {authenticated === true && user === post.username ? (
+        {authenticated === true && user.userID === post.userID ? (
           <Link className="Link" to="/update">
             Edit Post
           </Link>
@@ -35,10 +41,10 @@ const SinglePost = ({ post }) => {
         <h2>
           {" "}
           posted by :{" "}
-          <Link to={`/${thisPost.username}`}>{thisPost.username}</Link>
+          <Link to={`/${thisPost.userID}`}>{thisPost.username}</Link>
         </h2>
         <div className="postlikes">
-          <LikeIcon setThisPost={setThisPost} thisPost={thisPost} />
+          <LikeIcon setThisPost={setThisPost} thisPost={thisPost} increaseLikes={increaseLikes}/>
           <p className="likesCount">Total Likes : {thisPost.postLikes}</p>
         </div>
       </div>
@@ -46,7 +52,12 @@ const SinglePost = ({ post }) => {
         <img src={thisPost.postImage} alt="" />
         <p className="postContent">{thisPost.postContent}</p>
       </div>
-      <Comments comments={comments} />
+      { inActive !== "1" ? <></>
+       :
+          <Comments comments={comments} 
+                createComment={createComment}
+          />
+      }
     </PostWrapper>
   );
 };

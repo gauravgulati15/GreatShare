@@ -28,13 +28,14 @@ const LikeWrapper = styled.div`
     margin-left: 24px;
   }
 `;
-const LikeIcon = ({ setThisPost, thisPost }) => {
+const LikeIcon = ({ setThisPost, thisPost, increaseLikes }) => {
   const [clicked, setClicked] = useState(false);
   const handleLike = () => {
     if (clicked === false) {
-      setThisPost({ ...setThisPost, postLikes: thisPost.postLikes + 1 });
+      // setThisPost({ ...setThisPost, postLikes: thisPost.postLikes + 1 });
+      // console.log(thisPost);
       setClicked(true);
-      console.log(thisPost);
+      increaseLikes(this.postLikes+1);
     }
   };
   return (

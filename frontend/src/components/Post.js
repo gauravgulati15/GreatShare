@@ -97,6 +97,7 @@ const SinglePost = styled.div`
 `;
 
 const Post = ({ postData, inActive }) => {
+  const d = new Date(postData.createdAt);
   return (
     <SinglePost>
       <div className="img">
@@ -105,12 +106,12 @@ const Post = ({ postData, inActive }) => {
       <div className="content">
         <div className="left">
           <p className="contentText">{postData.postTitle}</p>
-          <p className="contentText">Created on: {postData.createdAt}</p>
+          <p className="contentText">Created on: {`${d.getDate()}/${d.getMonth()}`}</p>
           <p className="contentText creator"> {postData.username}</p>
         </div>
         <div className="right">
-          {inActive === false ? (
-            <Link className="link" to={`/${postData.username}/${postData.id}`}>
+          {inActive !== "1" ? (
+            <Link className="link" to={`/post/${postData.postID}/${inActive}`}>
               View
               <RemoveRedEyeOutlinedIcon />
             </Link>

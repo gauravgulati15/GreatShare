@@ -4,23 +4,23 @@ import posts from "../Testing/posts";
 import PostGrid from "./PostGrid";
 import "react-tabs/style/react-tabs.css";
 
-const ProfileTabs = () => {
+const ProfileTabs = ({posts, reviewPosts, moderatePosts}) => {
   return (
     <Tabs>
       <TabList>
         <Tab>Posts</Tab>
-        <Tab>In queue for moderation</Tab>
-        <Tab>Need change</Tab>
+        <Tab>In queue for moderation check</Tab>
+        <Tab>Needs change</Tab>
       </TabList>
 
       <TabPanel>
-        <PostGrid inActive={false} posts={posts} />
+        <PostGrid inActive="0" posts={posts} />
       </TabPanel>
       <TabPanel>
-        <PostGrid inActive={true} posts={posts} />
+        <PostGrid inActive="1" posts={moderatePosts} />
       </TabPanel>
       <TabPanel>
-        <PostGrid inActive={false} posts={posts} />
+        <PostGrid inActive="2" posts={reviewPosts} />
       </TabPanel>
     </Tabs>
   );

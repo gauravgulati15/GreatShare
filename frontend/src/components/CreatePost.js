@@ -1,21 +1,36 @@
 import React, { useState } from "react";
 import CreateForm from "../styled-components/CreateForm";
 import FileBase from "react-file-base64";
-const CreatePost = () => {
+import GreatShareService from "../API/api";
+
+const CreatePost = ({ user }) => {
   const [postData, setPostData] = useState({
     postTitle: "",
     postContent: "",
     postImage: "",
   });
-  const HandleSubmit = (e) => {
+
+  const HandleSubmit = async (e) => {
     e.preventDefault();
-    console.log(postData);
-    setPostData({
-      postTitle: "",
-      postContent: "",
-      postImage: "",
-    });
+    try{
+      const res = await GreatShareService.createPost({
+        userID: user.userID,
+        username: user.username,
+        postTitle: postData.postTitle,
+        postContent: postData.postContent,
+        postImage: postData.postImage
+      });
+
+      if(res[0]===false){
+        throw new Error(res[1]);
+      }
+      // TODO: alert
+    } catch(error){
+      // TODO: alert
+      console.log(error);
+    }
   };
+
   return (
     <CreateForm onSubmit={HandleSubmit}>
       <h3>Create a post</h3>

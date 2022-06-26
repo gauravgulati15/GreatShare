@@ -3,7 +3,9 @@ import styled from "styled-components";
 import CreateForm from "../styled-components/CreateForm";
 import Authenticate from "../API/Authenticate";
 import { useUserContext } from "../context/user_context";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
+import GreatShareService from "../API/api";
+
 const LoginForm = styled.div`
   display: flex;
   align-items: center;
@@ -12,16 +14,30 @@ const LoginForm = styled.div`
 `;
 
 const Login = () => {
-  const { setAuthenticated } = useUserContext();
+  const {setAuthenticated, setUser, user } = useUserContext();
   const [loginDetails, setLoginDetails] = useState({ email: "", password: "" });
   const navigate = useNavigate();
-  const handleLogin = (e) => {
+
+  const handleLogin = async(e) => {
     e.preventDefault();
-    if (Authenticate(loginDetails) === true) {
-      console.log(Authenticate(loginDetails));
+    try{
+      const res = await GreatShareService.getUserDetailsByEmailID(loginDetails.email);
+      
+      if(res[0]===false || res[1].password !== loginDetails.password){
+        throw new Error("Invalid credentials");
+      }
+      setUser({
+        userID: res[1].userID,
+        username: res[1].username,
+        emailID: res[1].emailID,
+        phoneNo: res[1].phoneNo
+      })
       setAuthenticated(true);
-      navigate("/");
-    } else {
+      console.log(user);
+      // <Navigate to="/" replace={true}></Navigate>
+    } catch(error){
+      // TODO: alert
+      console.log(error);
       setLoginDetails({ email: "", password: "" });
     }
   };

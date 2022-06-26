@@ -31,6 +31,22 @@ class GreatShareService {
     }
 
     // 3. Create new user
+    static async authUser(data){
+        const json = JSON.stringify({
+            emailID: data.emailID,
+            password: data.password
+        });
+        try {
+            const res = await http.get("/user/authUser", json);
+            if(res.status !== 200){
+                throw new Error(res.data);
+            }
+            return [true, res.data];
+        } catch(error){
+            return [false, error.message];
+        }
+    }
+
     static async createNewUser(data){
         const json = JSON.stringify({
             username: data.username,
@@ -381,11 +397,14 @@ class GreatShareService {
 
 
 // testing
-async function getRes(){
-    const res = await GreatShareService.getAllCommentsOfAPost("5e5a2693-62a6-4464-8365-ae7af33036b7");
-    console.log(res);
-}
+// async function getRes(){
+//     const res = await GreatShareService.authUser({
+//         emailID: "harshanand.jha@gmail.com",
+//         password: "harshanandjha"
+//     });
+//     console.log(res);
+// }
 
-getRes();
+// getRes();
 
 module.exports = GreatShareService;
