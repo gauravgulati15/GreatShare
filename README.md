@@ -9,7 +9,7 @@ https://user-images.githubusercontent.com/56128284/175812293-ddef3e3a-c843-4848-
 
 Domain by Godaddy registry
 Site under deployment
-P.S. ![greatshare.tel]() 
+P.S. [greatshare.tel](http://greatshare.tel/)
 .tel signifies tell everyone out there!
 
 <hr>
