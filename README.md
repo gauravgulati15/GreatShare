@@ -54,7 +54,7 @@ It uses  *__Clarifai__*  API for content moderation which checks the content and
      
      
      
-## Challanges we faced
+## Challenges we faced
 
 We were new to cockroachDb so integrating it with our app was a big challenge for us.
 The other challenge we faced was coming up with an automatic moderation check system using clarifai API.
@@ -63,19 +63,19 @@ The other challenge we faced was coming up with an automatic moderation check sy
 ## Accomplishment that we are proud of
 
 
-We were able to come up with a great idea and were also able to implement is while using so many new technologies we are definetely proud of this.
+We were able to come up with a great idea and were also able to implement it while using so many new technologies we are definitely proud of this.
 
 
 ## What we learned?
 
-We were able to learn about many technologies such as cockroachDB, twillio, the clarifai API apart from this we are were also able to learn about team work .
+We were able to learn about many technologies such as CockroachDB, Twillio, the Clarifai API apart from this we were also able to learn about team work .
 
 
 
 ## What's next for GreatShare?
 
 
-GreatShare aims on improving continuously. We are always looking forward to improve our quality. Our goals right now are to scale up and add more features and add content moderation for videos.
+GreatShare aims on improving continuously. We are always looking forward to improving our quality. Our goals right now are to scale up and add more features and add content moderation for videos.
 
 
 
