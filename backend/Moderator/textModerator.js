@@ -70,7 +70,7 @@ class TextModerator{
 }
 
 
-TextModerator.textModerator("I love my mama")
+TextModerator.textModerator(text)
     .then((res)=>console.log(res))
     .catch((error)=>console.log(error));
 
